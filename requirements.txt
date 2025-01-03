@@ -1,0 +1,6 @@
+langchain
+langchain-community
+crewai
+python-dotenv
+'crewai[tools]'
+gradio

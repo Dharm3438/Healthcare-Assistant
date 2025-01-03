@@ -1,0 +1,112 @@
+# research_disease:
+#   description: >
+#     Carefully analyze all the details of {disease} disease and break them down into individual topics.
+#     Define each topic in details and give factually correct details.
+#   expected_output: >
+#     A Detailed research report. Having Summary of diease, what may be the potential causes.
+#     Symptoms and treatments of disease. Also include other detail information if we have any.
+
+research_disease:  
+  description: >    
+    Conduct a thorough analysis of {disease} disease, breaking down all relevant details into individual topics. 
+    Each topic should be comprehensively defined with accurate and up-to-date information. 
+    Your analysis should cover the following areas in detail:    
+    - Disease overview    
+    - Potential causes and risk factors    
+    - Symptoms and diagnostic criteria    
+    - Available treatments and management strategies    
+    - Latest research findings and ongoing studies    
+    - Prevention strategies and public health implications  
+  expected_output: >    
+    A detailed research report on {disease}, which includes:    
+    - An executive summary providing a high-level overview of the disease.    
+    - A section on the potential causes and risk factors associated with the disease.    
+    - A detailed description of symptoms and diagnostic methods.    
+    - Comprehensive information on current treatments and management strategies.    
+    - Insights from the latest research and ongoing studies related to the disease.    
+    - Recommendations for prevention and public health measures.    
+    Your final report must be well-structured, factually accurate, and include references to credible sources. 
+    Where applicable, include visual aids such as charts, graphs, or tables to support the information presented.
+
+diet_planning:  
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease and develop a comprehensive diet plan aimed at aiding patients recovery.     
+    Develop a comprehensive diet plan tailored to the specific needs and goals of the individual having {disease} disease. 
+    The plan should include detailed nutritional information, meal schedules, and portion sizes. 
+    for all the below points you have to search about {disease} disease diets and then suggest things. 
+    Your analysis should cover the following areas:    
+    - Nutritional requirements based on age, gender, activity level, and health goals    
+    - Daily and weekly meal plans, including breakfast, lunch, dinner, and snacks    
+    - Macronutrient and micronutrient breakdown for each meal    
+    - Portion sizes and caloric intake guidelines    
+    - Recommendations for hydration and fluid intake    
+    - Consideration of dietary restrictions (e.g., allergies, intolerances, cultural preferences)    
+    - Supplement recommendations if needed
+    The plan should be strictly related to {disease} disease and help patients recover.  
+  expected_output: >    
+    A detailed diet plan that includes:
+    for all the below points you have to search about {disease} disease diets and then suggest things.    
+    - An executive summary outlining the goals and rationale behind the diet plan.    
+    - A daily and weekly meal schedule with specific food items for each meal and snack.    
+    - Nutritional information for each meal, including macronutrient (proteins, fats, carbohydrates) and micronutrient (vitamins, minerals) breakdown.    
+    - Portion sizes and total daily caloric intake.    
+    - Hydration guidelines, including recommended daily water intake.    
+    - Any dietary restrictions and how they are accommodated within the plan.    
+    - Supplement recommendations, if applicable, along with reasons for their inclusion.    
+    Your final report must be clear, actionable, and personalized to meet the specific needs and goals of the individual or group. 
+    Include visual aids such as charts, meal prep guides, or recipes to enhance understanding and implementation of the diet plan.
+    The plan should be strictly related to {disease} disease and help patients recover.
+ 
+exercise_plan_for_disease_recovery:  
+  description: >    
+    Conduct an in-depth analysis of the specific {disease} and develop a comprehensive exercise plan aimed at aiding recovery. 
+    The plan should be tailored to the individual’s condition, taking into account their current health status, physical capabilities, and recovery goals. 
+    for all the below points you have to search about {disease} disease exercises and then suggest things.
+    Your research and plan should cover the following areas:    
+    - Understanding the {disease} disease and its impact on physical function and mobility    
+    - Identifying key recovery milestones and physical therapy goals    
+    - Developing a progressive exercise regimen that includes warm-ups, main exercises, and cool-down routines    
+    - Detailed descriptions of each exercise, including proper form, duration, and frequency    
+    - Safety considerations and modifications for different levels of ability    
+    - Recommendations for complementary therapies (e.g., massage, hydrotherapy)    
+    - Resources and references for further reading and support
+    The plan should be strictly related to {disease} disease and help patients recover.  
+  expected_output: >    
+    A detailed exercise plan for {disease} recovery, which includes:    
+    - An executive summary outlining the key objectives and benefits of the exercise plan.    
+    - A comprehensive overview of the disease and its effects on physical health.    
+    - Specific recovery milestones and physical therapy goals tailored to the individual.    
+    - A weekly exercise schedule with detailed instructions for each session, including warm-up, main exercises, and cool-down routines.    
+    - Clear and precise descriptions of each exercise, with visual aids or diagrams to demonstrate proper form.    
+    - Safety guidelines and modifications to accommodate different levels of physical ability.    
+    - Recommendations for complementary therapies that can support the exercise regimen.    
+    - A list of credible resources and references for further information and ongoing support.    
+    Your final report must be thorough, personalized, and designed to maximize the recovery potential for the individual with {disease}. 
+    Ensure that all recommendations are evidence-based and include references to relevant scientific literature where applicable.
+
+doctor_consultation_matching:  
+  description: >    
+    Utilize the provided doctor’s website to gather and analyze detailed information about available doctors who can be consulted for {disease}. 
+    Scrape relevant data, including their experience, degrees, specialties, and other pertinent details. 
+    Ensure that the selected doctors are well-qualified and have relevant expertise in treating the specific disease. 
+    The task should cover the following areas:    
+    - Accessing and navigating the doctor’s website to extract necessary information    
+    - Identifying and collecting key details for each doctor, such as experience, qualifications, specialties, and patient reviews    
+    - Analyzing and comparing the gathered data to identify the most suitable doctors for consultation    
+    - Creating a comprehensive list of recommended doctors, including their contact information and consultation availability    
+    - Ensuring the accuracy and reliability of the collected data  
+  expected_output: >    
+    A detailed report on recommended doctors for {disease} consultation, which includes:    
+    - An executive summary outlining the selection criteria and the process used to identify suitable doctors.    
+    - A comprehensive list of doctors with the following details for each:      
+    - Full name and contact information      
+    - Degrees and certifications      
+    - Years of experience in the medical field      
+    - Specialties and areas of expertise related to {disease}      
+    - Patient reviews and ratings      
+    - Consultation availability (days, hours)    
+    - A comparison table summarizing the key qualifications and experience of each recommended doctor.    
+    - Visual aids, such as charts or graphs, to highlight the comparative analysis.    
+    - A summary of the data sources and methods used to ensure the accuracy of the information.    
+    Your final report must be well-organized, clear, and provide actionable recommendations for patients seeking consultation for {disease}. 
+    Ensure that all data is accurate, up-to-date, and sourced from reliable sections of the doctor’s website.

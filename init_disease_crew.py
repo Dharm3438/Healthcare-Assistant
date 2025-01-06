@@ -37,7 +37,7 @@ from crewai_tools import SerperDevTool
 Serpertool = SerperDevTool(
     # search_url="https://google.serper.dev/scholar",
     # country="India",
-    n_results=5,
+    n_results=20,
 )
 
 # Disease Research Crew

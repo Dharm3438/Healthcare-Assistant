@@ -1,72 +1,56 @@
-**Executive Summary**
+**Executive Summary:**
+This diet plan is designed specifically for individuals suffering from Bladder Cystitis, with the goal of alleviating symptoms, promoting healing, and improving overall bladder health. The plan focuses on incorporating bladder-friendly foods while avoiding potential irritants. It emphasizes a balanced intake of macronutrients and micronutrients tailored to the individual’s age, gender, activity level, and health goals.
 
-The goal of this diet plan is to provide a comprehensive and personalized nutrition plan for individuals diagnosed with Cancer Cystitis. This plan aims to support the recovery process by addressing the specific nutritional needs of patients with this condition. The plan will include daily and weekly meal schedules, nutritional information, portion sizes, and hydration guidelines.
+**Nutritional Requirements:**
+- **Age & Gender:** Nutritional needs vary; adults generally require 46-56g of protein, 20-35% of total calories from fat, and 45-65% from carbohydrates.
+- **Activity Level:** Active individuals may need more calories and protein.
+- **Health Goals:** Focus on anti-inflammatory foods, hydration, and avoiding irritants.
 
-**Daily and Weekly Meal Schedule**
+**Daily Meal Schedule:**
 
-Breakfast
+**Monday:**
+- **Breakfast:** Oatmeal with blueberries and almond milk  
+  - Nutritional Info: 300 calories, 10g protein, 5g fat, 55g carbs
+- **Snack:** Sliced cucumber with hummus  
+  - Nutritional Info: 150 calories, 5g protein, 7g fat, 20g carbs
+- **Lunch:** Grilled chicken salad with spinach, carrots, and olive oil dressing  
+  - Nutritional Info: 400 calories, 30g protein, 15g fat, 30g carbs
+- **Snack:** Rice cakes with almond butter  
+  - Nutritional Info: 200 calories, 6g protein, 10g fat, 25g carbs
+- **Dinner:** Quinoa with steamed broccoli and baked salmon  
+  - Nutritional Info: 500 calories, 35g protein, 20g fat, 45g carbs
 
-* Monday, Wednesday, Friday: Oatmeal with banana and almond milk
-* Tuesday, Thursday: Scrambled eggs with whole wheat toast and avocado
-* Saturday, Sunday: Greek yogurt with berries and granola
+**Weekly Meal Plan:**
+- **Tuesday:** Similar structure with variations like turkey wraps, fruit smoothies, and stir-fried vegetables.
+- **Wednesday:** Incorporate lentil soup, whole grain toast, and grilled vegetables.
+- **Thursday:** Focus on fish tacos with cabbage slaw and avocado.
+- **Friday:** Include chickpea salad, baked sweet potatoes, and grilled shrimp.
+- **Saturday:** Experiment with vegetable stir-fry and brown rice.
+- **Sunday:** Prepare a hearty vegetable soup and whole grain pasta.
 
-Lunch
+**Macronutrient Breakdown:**
+- Aim for 20-30% protein, 30-40% fats, and 40-50% carbohydrates across meals.
+- Include a variety of vegetables, lean proteins, healthy fats, and whole grains.
 
-* Monday, Wednesday, Friday: Grilled chicken breast with quinoa and steamed vegetables
-* Tuesday, Thursday: Whole grain pita with hummus, cucumber, and tomato
-* Saturday, Sunday: Lentil soup with whole grain bread
+**Portion Sizes and Caloric Intake:**
+- Total daily caloric intake should be adjusted based on individual needs, generally ranging from 1,800 to 2,200 calories.
+- Portion sizes should be moderate, e.g., 1 cup of grains, 3-4 oz of protein, and 1-2 cups of vegetables per meal.
 
-Dinner
+**Hydration Guidelines:**
+- Recommended daily water intake is about 2-3 liters, depending on activity level.
+- Herbal teas (non-caffeinated) and infused water (with cucumber or mint) are encouraged.
 
-* Monday, Wednesday, Friday: Grilled salmon with brown rice and roasted vegetables
-* Tuesday, Thursday: Grilled turkey burger on whole grain bun with sweet potato fries
-* Saturday, Sunday: Vegetable stir-fry with tofu and brown rice
+**Dietary Restrictions:**
+- Avoid common irritants such as caffeine, alcohol, spicy foods, and acidic fruits.
+- Accommodate allergies by substituting with safe alternatives (e.g., nut allergies can use sunflower seed butter).
 
-Snacks
+**Supplement Recommendations:**
+- Consider probiotics to support gut health.
+- Omega-3 fatty acids may help reduce inflammation.
+- Vitamin D and magnesium can be beneficial for overall health.
 
-* Mid-morning: Apple slices with almond butter
-* Mid-afternoon: Carrot sticks with hummus
+**Visual Aids:**
+- Include charts for meal prep guides and recipes for easy reference.
+- Provide a downloadable PDF with a comprehensive list of bladder-friendly foods and those to avoid.
 
-**Nutritional Information**
-
-* Macronutrient breakdown:
-	+ Protein: 15-20% of daily calories
-	+ Fat: 20-25% of daily calories
-	+ Carbohydrates: 55-60% of daily calories
-* Micronutrient breakdown:
-	+ Vitamin C: 100-150% of the Daily Value (DV)
-	+ Vitamin D: 60-80% of the DV
-	+ Calcium: 100-120% of the DV
-	+ Iron: 100-120% of the DV
-
-**Portion Sizes and Caloric Intake**
-
-* Daily caloric intake: 1500-1800 calories
-* Portion sizes:
-	+ Protein: 3-4 ounces per serving
-	+ Fat: 1-2 tablespoons per serving
-	+ Carbohydrates: 1-2 cups per serving
-
-**Hydration Guidelines**
-
-* Aim for at least 8 cups (64 ounces) of water per day
-* Increase fluid intake to 10-12 cups per day if experiencing symptoms such as urinary frequency or urgency
-
-**Dietary Restrictions**
-
-* Avoid foods high in sugar, salt, and unhealthy fats
-* Avoid foods that trigger symptoms or exacerbate condition
-* Accommodate dietary restrictions such as vegetarian or gluten-free as needed
-
-**Supplement Recommendations**
-
-* Omega-3 fatty acid supplements: 1000-2000 mg per day
-* Probiotic supplements: 1-2 billion CFU per day
-* Vitamin D supplements: 2000-4000 IU per day
-
-**Visual Aids**
-
-* Meal prep guide: [insert meal prep guide]
-* Recipes: [insert recipes]
-
-This diet plan is designed to provide a comprehensive and personalized nutrition plan for individuals diagnosed with Cancer Cystitis. It addresses the specific nutritional needs of patients with this condition and provides daily and weekly meal schedules, nutritional information, portion sizes, and hydration guidelines.
+This detailed diet plan aims to support recovery from Bladder Cystitis while promoting overall health and well-being.

@@ -4,28 +4,57 @@ import gradio as gr
 # import rag_prep as rag
 import utils as api
 import re
+import practo
+import find_doctor_degree as degree
 
 CSS ="""
 #disease_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
 #diet_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
 #exercise_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
+#component-0 > div:nth-child(7) { height: 600px !important; }
 """
 
-# component-0 > div:nth-child(11) { height: 600px !important; }
+DISEASE_NAME = ''
 
-# def display_text_list():
-#     text_list = summarize.summarize_tweets()
-#     formatted_data=""
-#     for i, item in enumerate(text_list):
-#         title = f"<h3>{i+1}. {item['title']}</h3>"
-#         new_sum = re.sub(r'\n', ' ', item['summary'])
-#         summary = f"<p>{new_sum}</p>"
-#         formatted_data+=title
-#         formatted_data+=summary
+
+def display_doctors(category):
     
-#     # print(formatted_data)
-#     return [formatted_data, gr.TextArea(visible=False), gr.Markdown(visible=True), gr.Markdown(visible=False)]
+    url1 = '''https://www.practo.com/search/doctors?results_type=doctor&q=[{"word":"'''
+    url1+=str(category)
+    url1+='''","autocompleted":true,"category":"subspeciality"}]&city=Mumbai&filters[doctor_review_count]=20,9999999&filters[years_of_experience]=15,9999999'''
 
+    doctors_data = practo.scrape_doctors_data_with_urls(url1)
+    html_output = ""
+
+    for doctor in doctors_data:
+        if('urls' not in doctor):
+            continue
+        doctor_html = f"""
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="{doctor['urls'][0]}" alt="Doctor Image" style="width: 150px; height: 150px; margin-right: 20px;">
+            <div>
+                <strong>Name:</strong> {doctor['doctor_name']}<br>
+                <strong>Degree:</strong> {DISEASE_NAME}<br>
+                <strong>Experience:</strong> {doctor['experience']}<br>
+                <strong>Locality:</strong> {doctor['locality']}, {doctor['city']}<br>
+                <strong>Clinic Name:</strong> {doctor['clinic_name']}<br>
+                <strong>Consultation Fees:</strong> {doctor['consultation_fee']}<br>
+                <strong>Recommendation:</strong> {doctor['recommendation']}<br>
+                <strong>Patient Stories:</strong> {doctor['total_feedback']}<br>
+            </div>
+        </div>
+        <div style="display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px;">
+        """
+        # Add hospital images as a gallery
+        for img in doctor["urls"]:
+            if('/doctor/' in img):
+                continue
+            doctor_html += f'<img src="{img}" alt="Hospital Image" style="width: 150px; height: 100px; object-fit: cover;">'
+        
+        doctor_html += "</div><br>"
+        html_output += doctor_html
+
+    return html_output
 
 with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
 
@@ -33,7 +62,7 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
     gr.Markdown("<h1><center>Healthcare Assistant</center></h1>")
     gr.Markdown("<h4><center>Ask anything you want to search about your Disease and get personalized answers</center></h4>")
     query = gr.Textbox(label="Fetch Disease", placeholder="Please enter your Disease to search... ")
-
+    
     gr.Markdown("<br />")
 
     with gr.Tab("Disease Analysis"):
@@ -50,8 +79,22 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
         exercise_details_mr = gr.Markdown(elem_id="exercise_id")
         research_exercise.click(api.run_exercise_crew, inputs=[query], outputs=exercise_details_mr)
     with gr.Tab("Consultation"):
-        fetch_tweet_btn = gr.Button(value="Fetch Doctors")
-        tweet_details = gr.TextArea(label="Consultations", max_lines=10)
+        research_doctors = gr.Button(value="Fetch Doctors")
+        gr.Markdown()
+        gr.Markdown("# Doctor Information")
+        dynamic_area = gr.Markdown()  # Placeholder for dynamic UI components
+        # Button to trigger doctor data display
+        # display_button = gr.Button("Display Doctors")
+
+        def update_ui(disease_name):
+            global DISEASE_NAME
+            category = degree.get_doctor_category(disease_name)
+            DISEASE_NAME = category
+            print('Category and Query is --------------', category, disease_name)
+            return display_doctors(category)
+        # Attach function to update UI
+        research_doctors.click(update_ui, inputs=[query], outputs=dynamic_area)
+
     with gr.Tab("Patient Stories"):
         fetch_tweet_btn = gr.Button(value="Fetch Stories")
         tweet_details = gr.TextArea(label="Patient Stories", max_lines=10)
@@ -83,3 +126,5 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
     gr.ChatInterface(fn=api.ask_questions, type="messages", examples=["hello", "hola", "merhaba"], title="Chat with Health Assistant")
 
 demo.launch()
+
+'''https://www.practo.com/search/doctors?results_type=doctor&q=[{"word":"","autocompleted":true,"category":"subspeciality"}]&city=Bangalore&filters[doctor_review_count]=20,9999999&filters[years_of_experience]=15,9999999'''

@@ -12,7 +12,7 @@ files = {
     'agents': 'config/agents.yaml',
     'tasks': 'config/tasks.yaml'
 }
- 
+
 configs = {}
 for config_type, file_path in files.items():
     with open(file_path, 'r') as file:
@@ -24,7 +24,8 @@ tasks_config = configs['tasks']
 import os
 from crewai import LLM
 groq_llm = LLM(
-    model="groq/llama3-8b-8192",
+    model="gpt-4o-mini",
+    # model="groq/llama3-8b-8192",
     temperature=0.3,
     # max_tokens=4096,
     # base_url="https://api.groq.com/openai/v1"
@@ -49,7 +50,7 @@ research_agent = Agent(
 research_task = Task(
     config=tasks_config['research_disease'],
     agent=research_agent,
-    output_file='disease_summary.md',
+    output_file='disease_summary2.md',
 )
 
 Diseasecrew = Crew(
@@ -68,7 +69,7 @@ diet_agent = Agent(
 diet_research_task= Task(
     config=tasks_config['diet_planning'],
     agent=research_agent,
-    output_file='diet_summary.md',
+    output_file='diet_summary2.md',
 )
 
 Dietcrew = Crew(
@@ -87,7 +88,7 @@ exercise_agent = Agent(
 exercise_research_task = Task(
     config=tasks_config['exercise_plan_for_disease_recovery'],
     agent=research_agent,
-    output_file='exercise_summary.md',
+    output_file='exercise_summary2.md',
 )
 
 Exercisecrew = Crew(

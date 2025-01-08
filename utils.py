@@ -1,4 +1,6 @@
 import init_disease_crew as helper
+from langchain_community.tools import YouTubeSearchTool
+import ast
 
 def run_disease_crew(disease):
 
@@ -49,5 +51,39 @@ def ask_questions(query, history):
     # print("\nAI: ",results)
 
     return "Feature Under Development"
+
+def get_embed_url(video_url):
+    video_id = ""
+
+    # Parse the video ID from the URL
+    if "youtube.com/watch?v=" in video_url:
+        video_id = video_url.split("v=")[1].split("&")[0]
+    elif "youtu.be/" in video_url:
+        video_id = video_url.split("youtu.be/")[1]
+    elif "/shorts/" in video_url:
+        video_id = video_url.split("/shorts/")[1]
+    else:
+        return "Invalid YouTube URL format"
+
+    # Construct the embeddable URL
+    embed_url = f"https://www.youtube.com/embed/{video_id}"
+    return embed_url
+
+def get_patient_stories(disease):
+    tool = YouTubeSearchTool()
+    videos = tool.run(f"my journey of healing {disease}, 6")
+    videos_list = ast.literal_eval(videos)
+    print(videos_list)
+    embeded_urls = []
+    embeded_html = '<div class="iframe-container">'
+    for url in videos_list:
+        print(url)
+        new_url = get_embed_url(url)
+        print(new_url)
+        embeded_html += f'<iframe width="560" height="315" src="{new_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>'
+        embeded_urls.append(new_url)
+    embeded_html+='</div>'
+    
+    return embeded_html
 
 print('#'*30 + 'file1 RUNS' + '#'*30)

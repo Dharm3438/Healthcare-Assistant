@@ -4,3 +4,4 @@ crewai
 python-dotenv
 crewai[tools]
 gradio
+agentops

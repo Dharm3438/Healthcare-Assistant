@@ -12,6 +12,8 @@ CSS ="""
 #diet_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
 #exercise_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
 #component-0 > div:nth-child(8) { padding: 20px; border-radius: 5px; border: 10px solid #1f2937; height: 600px !important; }
+.iframe-container { display: flex; flex-wrap: wrap; gap: 10px; }
+iframe { flex: 1 1 calc(50% - 10px); max-width: 560px; }
 """
 
 # component-0 > div:nth-child(8) { height: 600px !important; }
@@ -95,7 +97,7 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
 
     with gr.Row():
         with gr.Column(scale=2):
-            query = gr.Textbox(label="Specify Disease", placeholder="Please describe your disease and medical condition", info="For example: Cancer, Bladder Cystitis, Umbilical Hernia, Psoriasis...", interactive=True)
+            query = gr.Textbox(label="Specify Disease", placeholder="Please describe your disease and medical condition", info="For Example: Bladder Cystitis or Umbilical Hernia", interactive=True)
             query.change(set_query, inputs=query)
         with gr.Column(scale=1):
             city = gr.Dropdown(["Bangalore", "Chennai", "Delhi", "Hyderabad", "Mumbai", "Pune", "Kolkata"], label="Select your City", interactive=True)
@@ -146,7 +148,8 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
 
     with gr.Tab("Patient Experiences"):
         research_stories = gr.Button(value="Get Stories")
-        stories_details = gr.TextArea(label="journey", max_lines=10)
+        content = gr.HTML()
+        research_stories.click(api.get_patient_stories, inputs=[query], outputs=content)
 
     gr.Markdown("<br />")
     gr.ChatInterface(fn=api.ask_questions, type="messages", examples=["What is the Duration of my Disease?", "What is Pantop D medicines about?", "What lifestyle changes should i make?"], title="Chat with Health Assistant")

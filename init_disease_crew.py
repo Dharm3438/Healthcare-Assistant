@@ -8,6 +8,9 @@ import os
 import yaml
 from crewai import Agent, Task, Crew, LLM
 
+# import agentops
+# agentops.init()
+
 files = {
     'agents': 'config/agents.yaml',
     'tasks': 'config/tasks.yaml'

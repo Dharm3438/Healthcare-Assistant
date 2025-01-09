@@ -28,31 +28,76 @@
 #     Your final report must be well-structured, factually accurate, and include references to credible sources. 
 #     Where applicable, include visual aids such as charts, graphs, or tables to support the information presented.
 
-research_disease:  
-  description: >    
-    Conduct a thorough analysis of {disease} disease, breaking down all relevant details into individual topics.
-    Each topic should be comprehensively defined with accurate and up-to-date information.
-    Your analysis should cover Potential causes and risk factors, Symptoms, Available treatments, Prevention strategies. 
-  expected_output: >    
+# research_disease:  
+#   description: >    
+#     Conduct a thorough analysis of {disease} disease, breaking down all relevant details into individual topics.
+#     Each topic should be comprehensively defined with accurate and up-to-date information.
+#     Your analysis should cover Potential causes and risk factors, Symptoms, Available treatments, Prevention strategies. 
+#   expected_output: >    
+#     A detailed research report on {disease}, which includes:    
+#     - An executive summary providing a high-level overview of the disease.    
+#     - A section on the potential causes and risk factors associated with the disease.    
+#     - A detailed description of symptoms and diagnostic methods.    
+#     - Comprehensive information on current treatments and management strategies.        
+#     - Recommendations for prevention and public health measures.    
+#     Your final report must be well-structured, factually accurate, and include references to credible sources.
+
+serper_disease_research_task:
+  description: >
+    Conduct an in-depth analysis of {disease} disease using SerperDevTool, breaking down all relevant details into individual topics.
+    Each topic should be detailed comprehensively defined with accurate and up-to-date information.
+    - First search about disease and its potential causes.
+    - Then search about symptoms and diagnostic criteria.
+    - Then search about available treatments and prevention strategies.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: research_assistant_agent
+  
+tavily_disease_research_task:
+  description: >
+    Conduct an in-depth analysis of {disease} disease using TavilySearchTool, breaking down all relevant details into individual topics.
+    Each topic should be detailed comprehensively defined with accurate and up-to-date information.
+    - First search about disease and its potential causes.
+    - Then search about symptoms and diagnostic criteria.
+    - Then search about available treatments and prevention strategies.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: research_assistant_agent
+
+duckduckgo_disease_research_task:
+  description: >
+    Conduct an in-depth analysis of {disease} disease using DuckDuckGoSearchTool, breaking down all relevant details into individual topics.
+    Each topic should be detailed comprehensively defined with accurate and up-to-date information.
+    - First search about disease and its potential causes.
+    - Then search about symptoms and diagnostic criteria.
+    - Then search about available treatments and prevention strategies.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: research_assistant_agent
+
+final_research_report_task:
+  description: >
+    Compile all research information from the Serper, Tavily Search, and DuckDuckGo Search tasks to generate a comprehensive report.
+    This comprehensive report should be a markdown file that is easy to read and understand.
+    This report should include a detailed output of the research from each tool.
+  expected_output: >
     A detailed research report on {disease}, which includes:    
-    - An executive summary providing a high-level overview of the disease.    
-    - A section on the potential causes and risk factors associated with the disease.    
-    - A detailed description of symptoms and diagnostic methods.    
-    - Comprehensive information on current treatments and management strategies.        
-    - Recommendations for prevention and public health measures.    
-    Your final report must be well-structured, factually accurate, and include references to credible sources.
+    - An executive summary providing a high-level overview of the disease in detail.    
+    - A section on the potential causes and risk factors associated with the disease in detail.    
+    - A detailed description of symptoms and diagnostic methods in detail.    
+    - Comprehensive information on current treatments and management strategies in detail.        
+    - Recommendations for prevention and public health measures.
+    - Include all the URls only at the end of the entire report as references.    
+    Your final report must be well-structured, factually accurate.
+  agent: research_reporting_agent
 
 # diet_planning:  
 #   description: >
-#     Conduct an in-depth analysis of the specific {disease} disease and develop a comprehensive diet plan aimed at aiding patients recovery.     
-#     Develop a comprehensive diet plan tailored to the specific needs and goals of the individual having {disease} disease. 
-#     The plan should include detailed nutritional information, meal schedules, and portion sizes. 
-#     for all the below points you have to search about {disease} disease diets and then suggest things. 
-#     Your analysis should cover the following areas:    
+#     Conduct an in-depth analysis of the specific {disease} disease and develop a comprehensive diet plan aimed at aiding patients' recovery.    
+#     The plan should include detailed meals with nutritional information and portion sizes.
+#     for all the below points you have to search about {disease} disease diets and then suggest things.   
 #     - Nutritional requirements based on age, gender, activity level, and health goals    
-#     - Daily and weekly meal plans, including breakfast, lunch, dinner, and snacks    
-#     - Macronutrient and micronutrient breakdown for each meal    
-#     - Portion sizes and caloric intake guidelines    
+#     - Suggest 10 Indian food items which can be included also classify them as Veg, Non-Veg     
 #     - Recommendations for hydration and fluid intake    
 #     - Consideration of dietary restrictions (e.g., allergies, intolerances, cultural preferences)    
 #     - Supplement recommendations if needed
@@ -61,50 +106,79 @@ research_disease:
 #     A detailed diet plan that includes:
 #     for all the below points you have to search about {disease} disease diets and then suggest things.    
 #     - An executive summary outlining the goals and rationale behind the diet plan.    
-#     - A daily and weekly meal schedule with specific food items for each meal and snack.    
+#     - Suggest 10 Indian food items, classify them as Veg, Non-Veg and also mention how they are helpful in disease.  
 #     - Nutritional information for each meal, including macronutrient (proteins, fats, carbohydrates) and micronutrient (vitamins, minerals) breakdown.    
-#     - Portion sizes and total daily caloric intake.    
+#     - Portion sizes and total daily caloric intake with a sample meal plan.    
 #     - Hydration guidelines, including recommended daily water intake.    
 #     - Any dietary restrictions and how they are accommodated within the plan.    
 #     - Supplement recommendations, if applicable, along with reasons for their inclusion.    
 #     Your final report must be clear, actionable, and personalized to meet the specific needs and goals of the individual or group. 
-#     Include visual aids such as charts, meal prep guides, or recipes to enhance understanding and implementation of the diet plan.
 #     The plan should be strictly related to {disease} disease and help patients recover.
 
-diet_planning:  
+serper_diet_research_task: 
   description: >
-    Conduct an in-depth analysis of the specific {disease} disease and develop a comprehensive diet plan aimed at aiding patients' recovery.    
+    Conduct an in-depth analysis of the specific {disease} disease using SerperDevTool and develop a comprehensive diet plan aimed at aiding patients' recovery.    
     The plan should include detailed meals with nutritional information and portion sizes.
-    for all the below points you have to search about {disease} disease diets and then suggest things.   
-    - Nutritional requirements based on age, gender, activity level, and health goals    
-    - Suggest 10 Indian food items which can be included also classify them as Veg, Non-Veg     
-    - Recommendations for hydration and fluid intake    
-    - Consideration of dietary restrictions (e.g., allergies, intolerances, cultural preferences)    
-    - Supplement recommendations if needed
-    The plan should be strictly related to {disease} disease and help patients recover.  
-  expected_output: >    
-    A detailed diet plan that includes:
-    for all the below points you have to search about {disease} disease diets and then suggest things.    
-    - An executive summary outlining the goals and rationale behind the diet plan.    
-    - Suggest 10 Indian food items, classify them as Veg, Non-Veg and also mention how they are helpful in disease.  
+    - First search about {disease} disease and its nutritional requirements in detail.
+    - Search 10 Indian food items which can be included also classify them as Veg, Non-Veg
+    - Then search about macronutrient and micronutrient breakdown for each meal
+    - Then search about dietary restrictions and supplement recommendations.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: medical_dietician_research_agent
+
+tavily_diet_research_task: 
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease using TavilySearchTool and develop a comprehensive diet plan aimed at aiding patients' recovery.    
+    The plan should include detailed meals with nutritional information and portion sizes.
+    - First search about {disease} disease and its nutritional requirements in detail.
+    - Search 10 Indian food items which can be included also classify them as Veg, Non-Veg
+    - Then search about macronutrient and micronutrient breakdown for each meal
+    - Then search about dietary restrictions and supplement recommendations.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: medical_dietician_research_agent
+
+duckduckgo_diet_research_task:
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease using DuckDuckGoSearchTool and develop a comprehensive diet plan aimed at aiding patients' recovery.    
+    The plan should include detailed meals with nutritional information and portion sizes.
+    - First search about {disease} disease and its nutritional requirements in detail.
+    - Search 10 Indian food items which can be included also classify them as Veg, Non-Veg
+    - Then search about macronutrient and micronutrient breakdown for each meal
+    - Then search about dietary restrictions and supplement recommendations.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: medical_dietician_research_agent
+
+final_diet_report_task:
+  description: >
+    Compile all research information from the Serper, Tavily Search, and DuckDuckGo Search tasks to generate a comprehensive report.
+    This comprehensive report should be a markdown file that is easy to read and understand.
+    This report should include a detailed output of the research from each tool.
+  expected_output: >
+    A detailed diet plan for {disease} disease that includes:    
+    - An executive summary outlining the goals and rationale behind the diet plan in detail.    
+    - Suggest 10 Indian food items, classify them as Veg, Non-Veg and also mention how they are helpful in disease in detail.  
     - Nutritional information for each meal, including macronutrient (proteins, fats, carbohydrates) and micronutrient (vitamins, minerals) breakdown.    
     - Portion sizes and total daily caloric intake with a sample meal plan.    
     - Hydration guidelines, including recommended daily water intake.    
     - Any dietary restrictions and how they are accommodated within the plan.    
-    - Supplement recommendations, if applicable, along with reasons for their inclusion.    
-    Your final report must be clear, actionable, and personalized to meet the specific needs and goals of the individual or group. 
+    - Supplement recommendations, if applicable, along with reasons for their inclusion.
+    - Include all the URls only at the end of the entire report as references.    
+    Your final report must be well-structured, factually accurate. 
     The plan should be strictly related to {disease} disease and help patients recover.
+  agent: diet_reporting_agent
 
- 
 # exercise_plan_for_disease_recovery:  
 #   description: >    
-#     Conduct an in-depth analysis of the specific {disease} and develop a comprehensive exercise plan aimed at aiding recovery. 
-#     The plan should be tailored to the individual’s condition, taking into account their current health status, physical capabilities, and recovery goals. 
+#     Conduct an in-depth analysis of the specific {disease} and develop a comprehensive exercise plan aimed at aiding recovery.
+#     The plan should be tailored to the individual’s condition, taking into account their current health status, physical capabilities, and recovery goals.
 #     for all the below points you have to search about {disease} disease exercises and then suggest things.
 #     Your research and plan should cover the following areas:    
 #     - Understanding the {disease} disease and its impact on physical function and mobility    
 #     - Identifying key recovery milestones and physical therapy goals    
-#     - Developing a progressive exercise regimen that includes warm-ups, main exercises, and cool-down routines    
+#     - Suggest 10 Best exercises for patients recovery.   
 #     - Detailed descriptions of each exercise, including proper form, duration, and frequency    
 #     - Safety considerations and modifications for different levels of ability    
 #     - Recommendations for complementary therapies (e.g., massage, hydrotherapy)    
@@ -112,43 +186,64 @@ diet_planning:
 #     The plan should be strictly related to {disease} disease and help patients recover.  
 #   expected_output: >    
 #     A detailed exercise plan for {disease} recovery, which includes:    
-#     - An executive summary outlining the key objectives and benefits of the exercise plan.    
-#     - A comprehensive overview of the disease and its effects on physical health.    
+#     - An executive summary outlining the key objectives and benefits of the exercise plan.      
 #     - Specific recovery milestones and physical therapy goals tailored to the individual.    
-#     - A weekly exercise schedule with detailed instructions for each session, including warm-up, main exercises, and cool-down routines.    
-#     - Clear and precise descriptions of each exercise, with visual aids or diagrams to demonstrate proper form.    
+#     - Suggest 10 Best exercises for patients' recovery.    
+#     - Clear and precise descriptions of each exercise.
 #     - Safety guidelines and modifications to accommodate different levels of physical ability.    
 #     - Recommendations for complementary therapies that can support the exercise regimen.    
 #     - A list of credible resources and references for further information and ongoing support.    
-#     Your final report must be thorough, personalized, and designed to maximize the recovery potential for the individual with {disease}. 
+#     Your final report must be thorough, personalized, and designed to maximize the recovery potential for the individual with {disease}.
 #     Ensure that all recommendations are evidence-based and include references to relevant scientific literature where applicable.
 
-exercise_plan_for_disease_recovery:  
-  description: >    
-    Conduct an in-depth analysis of the specific {disease} and develop a comprehensive exercise plan aimed at aiding recovery.
-    The plan should be tailored to the individual’s condition, taking into account their current health status, physical capabilities, and recovery goals.
-    for all the below points you have to search about {disease} disease exercises and then suggest things.
-    Your research and plan should cover the following areas:    
-    - Understanding the {disease} disease and its impact on physical function and mobility    
-    - Identifying key recovery milestones and physical therapy goals    
-    - Suggest 10 Best exercises for patients recovery.   
-    - Detailed descriptions of each exercise, including proper form, duration, and frequency    
-    - Safety considerations and modifications for different levels of ability    
-    - Recommendations for complementary therapies (e.g., massage, hydrotherapy)    
-    - Resources and references for further reading and support
-    The plan should be strictly related to {disease} disease and help patients recover.  
-  expected_output: >    
+serper_exercise_research_task:
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease using SerperDevTool and develop a comprehensive exercise plan aimed at aiding recovery.
+    - First search about {disease} disease and its impact on physical function and mobility.
+    - Then search about 10 Best exercises for patients recovery in detail.
+    - Then search about recommendations for complementary therapies that can support the exercise regimen.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: physiotherapist_agent
+
+tavily_exercise_research_task:
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease using TavilySearchTool and develop a comprehensive exercise plan aimed at aiding recovery.
+    - First search about {disease} disease and its impact on physical function and mobility.
+    - Then search about 10 Best exercises for patients recovery in detail.
+    - Then search about recommendations for complementary therapies that can support the exercise regimen.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: physiotherapist_agent
+
+duckduckgo_exercise_research_task:
+  description: >
+    Conduct an in-depth analysis of the specific {disease} disease using DuckDuckGoSearchTool and develop a comprehensive exercise plan aimed at aiding recovery.
+    - First search about {disease} disease and its impact on physical function and mobility.
+    - Then search about 10 Best exercises for patients recovery in detail.
+    - Then search about recommendations for complementary therapies that can support the exercise regimen.
+  expected_output: >
+    A detailed output of findings from web searches, including all the topics with reference links.
+  agent: physiotherapist_agent
+
+final_exercise_report_task:
+  description: >
+    Compile all research information from the Serper, Tavily Search, and DuckDuckGo Search tasks to generate a comprehensive report.
+    This comprehensive report should be a markdown file that is easy to read and understand.
+    This report should include a detailed output of the research from each tool.
+  expected_output: >
+    expected_output: >    
     A detailed exercise plan for {disease} recovery, which includes:    
     - An executive summary outlining the key objectives and benefits of the exercise plan.      
     - Specific recovery milestones and physical therapy goals tailored to the individual.    
     - Suggest 10 Best exercises for patients' recovery.    
     - Clear and precise descriptions of each exercise.
     - Safety guidelines and modifications to accommodate different levels of physical ability.    
-    - Recommendations for complementary therapies that can support the exercise regimen.    
-    - A list of credible resources and references for further information and ongoing support.    
-    Your final report must be thorough, personalized, and designed to maximize the recovery potential for the individual with {disease}.
-    Ensure that all recommendations are evidence-based and include references to relevant scientific literature where applicable.
-
+    - Recommendations for complementary therapies that can support the exercise regimen.
+    - Include all the URls only at the end of the entire report as references.
+    Your final report must be well-structured, factually accurate.      
+    The plan should be strictly related to {disease} disease and help patients recover.
+  agent: exercise_reporting_agent  
 
 doctor_consultation_matching:  
   description: >    

@@ -5,3 +5,4 @@ python-dotenv
 crewai[tools]
 gradio
 agentops
+tavily-python

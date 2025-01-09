@@ -7,6 +7,9 @@ import re
 import practo
 import find_doctor_degree as degree
 
+import agentops
+agentops.init()
+
 CSS ="""
 #disease_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}
 #diet_id {background-color: #374151; padding: 20px; border-radius: 5px; border: 10px solid #1f2937;}

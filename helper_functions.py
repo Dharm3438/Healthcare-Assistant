@@ -1,6 +1,7 @@
-import init_disease_crew as helper
+import initialize_crew as helper
 from langchain_community.tools import YouTubeSearchTool
 import ast
+import globals
 
 def run_disease_crew(disease):
 
@@ -8,10 +9,6 @@ def run_disease_crew(disease):
         inputs={'disease': disease}
     )
 
-    print(result)
-
-    print(type(result))
-    print(str(result))
     return str(result)
 
 def run_diet_crew(disease):
@@ -20,10 +17,6 @@ def run_diet_crew(disease):
         inputs={'disease': disease}
     )
 
-    print(result)
-
-    print(type(result))
-    print(str(result))
     return str(result)
 
 def run_exercise_crew(disease):
@@ -32,10 +25,6 @@ def run_exercise_crew(disease):
         inputs={'disease': disease}
     )
 
-    print(result)
-
-    print(type(result))
-    print(str(result))
     return str(result)
 
 def ask_questions(query, history):
@@ -50,7 +39,11 @@ def ask_questions(query, history):
     # results = chain.invoke({'query':query,'context':context})
     # print("\nAI: ",results)
 
-    return "Feature Under Development"
+    result = helper.MedicalQueryCrew.kickoff(
+        inputs={'question': query, 'history': history}
+    )
+
+    return str(result)
 
 def get_embed_url(video_url):
     video_id = ""
@@ -73,13 +66,12 @@ def get_patient_stories(disease):
     tool = YouTubeSearchTool()
     videos = tool.run(f"my journey of healing {disease}, 6")
     videos_list = ast.literal_eval(videos)
-    print(videos_list)
+    
     embeded_urls = []
     embeded_html = '<div class="iframe-container">'
     for url in videos_list:
         print(url)
         new_url = get_embed_url(url)
-        print(new_url)
         embeded_html += f'<iframe width="560" height="315" src="{new_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>'
         embeded_urls.append(new_url)
     embeded_html+='</div>'

@@ -271,3 +271,16 @@ doctor_consultation_matching:
     - A summary of the data sources and methods used to ensure the accuracy of the information.    
     Your final report must be well-organized, clear, and provide actionable recommendations for patients seeking consultation for {disease}. 
     Ensure that all data is accurate, up-to-date, and sourced from reliable sections of the doctor’s website.
+
+tavily_medical_queries_task:
+  description: >
+    Utilize the TavilyMedicalSearchTool to gather and analyze detailed information about the query provided by the user. 
+    You will rephrase and re-query as necessary to obtain all needed information.
+
+    QUERY = "{question}"
+
+    Below is the Conversation History you can refer.
+    {history}
+  expected_output: >
+    Short Answer to the query: "{question}" which includes all the relevant information gathered from the TavilyMedicalSearchTool.
+    Answer should not be more than 4-5 lines.

@@ -9,6 +9,7 @@ import yaml
 from crewai import Agent, Task, Crew, LLM
 from tools.tavily_search_tool import TavilySearchTool
 from tools.DuckDuckGo_search_tool import DuckDuckGoSearchRunTool
+from tools.tavily_medical_queries import TavilyMedicalSearchTool
 
 files = {
     'agents': 'config/agents.yaml',
@@ -25,7 +26,7 @@ tasks_config = configs['tasks']
 
 import os
 from crewai import LLM
-groq_llm = LLM(
+openai_llm = LLM(
     model="gpt-4o-mini",
     # model="groq/llama3-8b-8192",
     temperature=0.3,
@@ -45,13 +46,13 @@ Serpertool = SerperDevTool(
 ###### Disease Research Crew
 research_agent = Agent(
     config=agents_config['research_assistant_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
     tools=[Serpertool, TavilySearchTool(), DuckDuckGoSearchRunTool()],
 )
 
 reporting_agent = Agent(
     config=agents_config['research_reporting_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
 )
  
 serper_research_task = Task(
@@ -88,13 +89,13 @@ Diseasecrew = Crew(
 ###### Diet Research Crew
 diet_research_agent = Agent(
     config=agents_config['medical_dietician_research_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
     tools=[Serpertool, TavilySearchTool(), DuckDuckGoSearchRunTool()]
 )
 
 diet_reporting_agent = Agent(
     config=agents_config['diet_reporting_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
 )
 
 serper_diet_research= Task(
@@ -131,13 +132,13 @@ Dietcrew = Crew(
 ###### Exercise Research Crew
 exercise_research_agent = Agent(
     config=agents_config['physiotherapist_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
     tools=[Serpertool, TavilySearchTool(), DuckDuckGoSearchRunTool()]
 )
 
 exercise_reporting_agent = Agent(
     config=agents_config['exercise_reporting_agent'],
-    llm=groq_llm,
+    llm=openai_llm,
 )
  
 serper_exercise_research_task = Task(
@@ -168,6 +169,25 @@ final_exercise_report_task = Task(
 Exercisecrew = Crew(
     agents=[exercise_research_agent,exercise_reporting_agent],
     tasks=[serper_exercise_research_task, tavily_exercise_research_task, duckduckgo_exercise_research_task, final_exercise_report_task],
+    verbose=True
+)
+
+# Medical Query Crew
+medical_query_agent = Agent(
+    config=agents_config['medical_query_agent'],
+    llm=openai_llm,
+    tools=[TavilyMedicalSearchTool()]
+)
+
+medical_query_task = Task(
+    config=tasks_config['tavily_medical_queries_task'],
+    agent=medical_query_agent,
+    tools=[TavilyMedicalSearchTool()]
+)
+
+MedicalQueryCrew = Crew(
+    agents=[medical_query_agent],
+    tasks=[medical_query_task],
     verbose=True
 )
 

@@ -1,11 +1,7 @@
 import gradio as gr
-# import fetch_threads as api
-# import summarize_threads as summarize
-# import rag_prep as rag
-import utils as api
-import re
-import practo
-import find_doctor_degree as degree
+import helper_functions as api
+import practo_integration
+import doctor_filter_by_degree as degree
 
 import agentops
 agentops.init()
@@ -18,10 +14,6 @@ CSS ="""
 .iframe-container { display: flex; flex-wrap: wrap; gap: 10px; }
 iframe { flex: 1 1 calc(50% - 10px); max-width: 560px; }
 """
-
-# component-0 > div:nth-child(8) { height: 600px !important; }
-
-DISEASE_NAME = ''
 
 # Global variables
 QUERY = ""
@@ -58,7 +50,7 @@ def display_doctors(category):
     url1 += str(category)
     url1 += '''","autocompleted":true,"category":"subspeciality"}]&city=''' + CITY + '''&filters[doctor_review_count]=20,9999999&filters[years_of_experience]=15,9999999'''
 
-    doctors_data = practo.scrape_doctors_data_with_urls(url1)
+    doctors_data = practo_integration.scrape_doctors_data_with_urls(url1)
     html_output = ""
 
     for doctor in doctors_data:
@@ -121,7 +113,6 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
 
     with gr.Tab("Disease Analysis"):
         research_disease = gr.Button(value="Research Diesease", elem_id="disease_btn")
-        # tweet_details = gr.TextArea(label="Research Diesease", max_lines=10)
         disease_details_mr = gr.Markdown(elem_id="disease_id", container=True, show_copy_button=True)
         research_disease.click(api.run_disease_crew, inputs=[query], outputs=disease_details_mr)
     with gr.Tab("Diet Analysis"):
@@ -137,9 +128,7 @@ with gr.Blocks(css=CSS, theme=gr.themes.Soft()) as demo:
         gr.Markdown()
         gr.Markdown("# Doctor Information")
         dynamic_area = gr.Markdown()  # Placeholder for dynamic UI components
-        # Button to trigger doctor data display
-        # display_button = gr.Button("Display Doctors")
-
+    
         def update_ui(disease_name):
             global DISEASE_NAME
             category = degree.get_doctor_category(disease_name)

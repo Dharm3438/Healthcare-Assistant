@@ -145,3 +145,19 @@ consultation_agent:
     up-to-date information on doctor availability and specialties.
   allow_delegation: false
   verbose: true
+
+medical_query_agent:
+  role: >
+    Expert Medical Queries Analyst
+  goal: >
+    This agent is responsible for scraping the website to extract
+    information about the {question} query provided by user. 
+    You will rephrase and re-query as necessary to obtain all needed information.
+  backstory: >
+    As an Expert Medical Queries Analyst, you have a knack for extracting
+    valuable insights from online sources and databases. Your ability to
+    navigate complex websites and search engines ensures that you can find
+    the information needed to answer any medical query. Now, you are tasked
+    with scraping website to gather detailed information on the
+    {question} query provided by the user, ensuring that all relevant data is
+    captured and presented accurately.

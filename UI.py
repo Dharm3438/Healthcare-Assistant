@@ -15,6 +15,7 @@ CSS ="""
 iframe { flex: 1 1 calc(50% - 10px); max-width: 560px; }
 """
 
+
 # Global variables
 QUERY = ""
 CITY = ""

@@ -1,8 +1,8 @@
-langchain
-langchain-community
-crewai
-python-dotenv
-crewai[tools]
-gradio
-agentops
-tavily-python
+langchain==0.3.14
+langchain-community==0.3.14
+crewai=0.86.0
+python-dotenv==1.0.1
+crewai[tools]==0.17.0
+gradio==5.10.0
+agentops==0.3.21
+tavily-python==0.5.0
